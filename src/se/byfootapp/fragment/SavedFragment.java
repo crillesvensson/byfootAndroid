@@ -1,19 +1,25 @@
 package se.byfootapp.fragment;
 
-import se.byfootapp.R;
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import java.util.List;
 
-public class SavedFragment extends Fragment{
+import se.byfootapp.R;
+import se.byfootapp.adapter.PlaceAdapter;
+import se.byfootapp.database.DatabaseHelper;
+import se.byfootapp.model.Place;
+import android.os.Bundle;
+import android.support.v4.app.ListFragment;
+
+public class SavedFragment extends ListFragment{ 
+    
+    private DatabaseHelper db;
+    private PlaceAdapter placeAdapter;
+    private List<Place> places;
     
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstancesState){
-        View view = inflater.inflate(R.layout.layout_saved, container,false);
-        return view;
+    public void onActivityCreated(Bundle savedInstanceState){
+        this.db = DatabaseHelper.getInstance(this.getActivity());        
+        this.places = this.db.getPlaces();
+        this.placeAdapter = new PlaceAdapter(this.getActivity(), R.layout.layout_saved, this.places);    
+        this.setListAdapter(placeAdapter);
     }
-
 }
