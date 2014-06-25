@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:facebook="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    
+    <com.facebook.widget.ProfilePictureView
+            android:id="@+id/profile_picture"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="40dp"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_horizontal"
+            facebook:preset_size="large" />
+    
+    <LinearLayout 
+        android:id="@+id/profile_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="40dp"
+        android:layout_below="@id/profile_picture"
+        >
+        
+	    <TextView
+		    android:id="@+id/profile_first_name"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_marginRight="20dp"
+	        android:textSize="20sp"
+	        android:text="@string/profile_fragment" />
+    
+	    <TextView
+		    android:id="@+id/profile_last_name"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:textSize="20sp"
+	        android:text="@string/profile_fragment" />
+	    
+    </LinearLayout>
+    
+    
+    
+    <TextView
+	    android:id="@+id/profile_birthday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/profile_name"
+        android:textSize="20sp"
+        android:text="@string/profile_fragment" />
+    
+    <Button 
+        android:id="@+id/logOut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:onClick="logOut"
+        android:text="@string/logout"
+        />
+    
+
+</RelativeLayout>

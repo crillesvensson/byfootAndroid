@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ByFootApp</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="app_id">257450387775476</string>
+    
+    <!-- Fragments -->
+    <string name="saved_fragment">Saved</string>
+    <string name="places_fragment">places</string>
+    <string name="profile_fragment">profile</string>
+    <string name="camera_fragment">camera</string>
+    
+    <!-- Camera fragment -->
+    <string name="camera_capture">Take image</string>
+    <string name="camera_capture_new">Take new image</string>
+    <string name="camera_save">Save</string>
+    
+    <!-- Profile fragment -->
+    <string name="logout">Logout</string>
+    
+    <!-- SharedPreferences -->
+    <string name="sp_name">sharedPreferences</string>
+    
+    <!-- User -->
+	<string name="user_first_name">userFirstName</string>
+	<string name="user_last_name">userLastName</string>
+	<string name="user_birthday">userBirthday</string>
+	<string name="user_id">userId</string>
+	
+
+</resources>
