@@ -1,10 +1,19 @@
 package se.byfootapp.model;
 
 public class Place {
+    private Integer id;
     private String name;
     private String type;
     private Double lat;
     private Double lon;
+    
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
     
     public String getName(){
         return this.name;

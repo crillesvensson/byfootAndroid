@@ -158,6 +158,9 @@ containing a value of this type.
         public static final int com_facebook_usersettingsfragment_connected_shadow_color=0x7f060004;
         public static final int com_facebook_usersettingsfragment_connected_text_color=0x7f060003;
         public static final int com_facebook_usersettingsfragment_not_connected_text_color=0x7f060005;
+        public static final int list_divider_color=0x7f060007;
+        public static final int list_item_bg_color=0x7f060009;
+        public static final int white_color=0x7f060008;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -229,7 +232,7 @@ containing a value of this type.
         public static final int ic_launcher=0x7f020028;
     }
     public static final class id {
-        public static final int action_settings=0x7f040029;
+        public static final int action_settings=0x7f04002e;
         public static final int camera_button=0x7f04001f;
         public static final int camera_image=0x7f04001e;
         public static final int camera_save=0x7f040020;
@@ -259,17 +262,22 @@ containing a value of this type.
         public static final int com_facebook_usersettingsfragment_logo_image=0x7f04001b;
         public static final int com_facebook_usersettingsfragment_profile_name=0x7f04001c;
         public static final int large=0x7f040002;
-        public static final int logOut=0x7f040027;
+        public static final int list_divider_one=0x7f040024;
+        public static final int list_divider_two=0x7f040025;
+        public static final int list_image=0x7f040022;
+        public static final int list_items=0x7f040021;
+        public static final int list_title=0x7f040023;
+        public static final int logOut=0x7f04002c;
         public static final int normal=0x7f040001;
         public static final int pager=0x7f040003;
         public static final int picker_subtitle=0x7f040013;
-        public static final int places=0x7f040021;
-        public static final int profile_birthday=0x7f040026;
-        public static final int profile_first_name=0x7f040024;
-        public static final int profile_last_name=0x7f040025;
-        public static final int profile_name=0x7f040023;
-        public static final int profile_picture=0x7f040022;
-        public static final int saved=0x7f040028;
+        public static final int places=0x7f040026;
+        public static final int profile_birthday=0x7f04002b;
+        public static final int profile_first_name=0x7f040029;
+        public static final int profile_last_name=0x7f04002a;
+        public static final int profile_name=0x7f040028;
+        public static final int profile_picture=0x7f040027;
+        public static final int saved=0x7f04002d;
         public static final int small=0x7f040000;
     }
     public static final class layout {
@@ -290,9 +298,10 @@ containing a value of this type.
         public static final int com_facebook_tooltip_bubble=0x7f03000e;
         public static final int com_facebook_usersettingsfragment=0x7f03000f;
         public static final int layout_camera=0x7f030010;
-        public static final int layout_places=0x7f030011;
-        public static final int layout_profile=0x7f030012;
-        public static final int layout_saved=0x7f030013;
+        public static final int layout_list_item=0x7f030011;
+        public static final int layout_places=0x7f030012;
+        public static final int layout_profile=0x7f030013;
+        public static final int layout_saved=0x7f030014;
     }
     public static final class menu {
         public static final int main_by_foot=0x7f090000;
@@ -334,6 +343,10 @@ containing a value of this type.
         public static final int com_facebook_usersettingsfragment_logged_in=0x7f070009;
         public static final int com_facebook_usersettingsfragment_not_logged_in=0x7f07000a;
         public static final int hello_world=0x7f07001b;
+        public static final int list_divider_content_description=0x7f07002c;
+        /**  Save places 
+         */
+        public static final int list_image_content_description=0x7f07002b;
         /**  Profile fragment 
          */
         public static final int logout=0x7f070025;

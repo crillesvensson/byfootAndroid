@@ -83,6 +83,7 @@ public class PlaceTable {
     
     private static Place buildPlace(Cursor cursor){
         Place place = new Place();
+        place.setId(cursor.getInt(cursor.getColumnIndex(KEY_ID)));
         place.setName(cursor.getString(cursor.getColumnIndex(NAME)));
         place.setType(cursor.getString(cursor.getColumnIndex(TYPE)));
         place.setLat(cursor.getDouble(cursor.getColumnIndex(LAT)));

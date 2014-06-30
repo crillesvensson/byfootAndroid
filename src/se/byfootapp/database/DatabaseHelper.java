@@ -74,7 +74,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     }
     
     //Place Image methods
-    public long createPlace(PlaceImage placeImage){
+    public long createPlaceImage(PlaceImage placeImage){
         return PlaceImageTable.createPlaceImage(placeImage, getWritableDatabase());
     }
     
@@ -84,6 +84,10 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     
     public List<PlaceImage> getPlaceImages(){
         return PlaceImageTable.getPlaceImages(getWritableDatabase());
+    }
+    
+    public List<PlaceImage> getPlaceImagesForPlace(Integer placeId){
+        return PlaceImageTable.getPlaceImagesForPlace(placeId, getWritableDatabase());
     }
     
     //Place text methods

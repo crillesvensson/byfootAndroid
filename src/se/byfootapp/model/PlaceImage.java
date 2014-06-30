@@ -4,7 +4,7 @@ import java.util.Calendar;
 
 public class PlaceImage {
     private byte[] image;
-    private Integer placeId;
+    private long placeId;
     private Calendar date;
     
     public byte[] getImage(){
@@ -15,11 +15,11 @@ public class PlaceImage {
         this.image = image;
     }
     
-    public Integer getPlaceId(){
+    public long getPlaceId(){
         return this.placeId;
     }
     
-    public void setPlaceId(Integer placeId){
+    public void setPlaceId(long placeId){
         this.placeId = placeId;
     }
     

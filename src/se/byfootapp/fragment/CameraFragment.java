@@ -1,6 +1,14 @@
 package se.byfootapp.fragment;
 
+import java.util.Calendar;
+import java.util.Date;
+import java.util.TimeZone;
+
 import se.byfootapp.R;
+import se.byfootapp.database.DatabaseHelper;
+import se.byfootapp.model.Place;
+import se.byfootapp.model.PlaceImage;
+import se.byfootapp.utils.ImageUtils;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -17,10 +25,12 @@ public class CameraFragment extends Fragment{
     private Bitmap bitmap;
     private ImageView imageView;
     private View layout;
+    private DatabaseHelper db;
     
     @Override
     public void onCreate(Bundle savedInstanceState) {
        super.onCreate(savedInstanceState);
+       this.db = DatabaseHelper.getInstance(getActivity());
     }
 
     @Override
@@ -60,6 +70,19 @@ public class CameraFragment extends Fragment{
      }
     
     private void saveToDB(){
-        //byte[] image = ImageUtils.convertBitmapToByteArray(this.bitmap);
+        byte[] image = ImageUtils.convertBitmapToByteArray(this.bitmap);
+        Place place = new Place();
+        place.setLat(11.11);
+        place.setLon(11.11);
+        place.setName("Gothenburg");
+        place.setType("City");
+        long placeId = this.db.createPlace(place);
+        PlaceImage placeImage = new PlaceImage();
+        Calendar today = Calendar.getInstance(TimeZone.getDefault());
+        today.setTime(new Date());
+        placeImage.setDate(today);
+        placeImage.setImage(image);
+        placeImage.setPlaceId(placeId);
+        this.db.createPlaceImage(placeImage);
     }
 }

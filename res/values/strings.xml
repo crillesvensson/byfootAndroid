@@ -29,5 +29,9 @@
 	<string name="user_birthday">userBirthday</string>
 	<string name="user_id">userId</string>
 	
+	<!-- Save places -->
+	<string name="list_image_content_description">First image connected to this place</string>
+	<string name="list_divider_content_description">List divider</string>
+	
 
 </resources>

@@ -69,6 +69,14 @@ public class PlaceImageTable {
         return buildPlaceImages(cursor);
     }
     
+    public static List<PlaceImage> getPlaceImagesForPlace(Integer placeId, SQLiteDatabase db){
+        String selectQuery = "SELECT * FROM " + TABLE_PLACE_IMAGE
+                            + " WHERE " + PLACE_ID + " == " + placeId;
+        
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        return buildPlaceImages(cursor);
+    }
+    
     private static List<PlaceImage> buildPlaceImages(Cursor cursor){
         List<PlaceImage> placeImages = new ArrayList<PlaceImage>();
         boolean notEmpty = false;
@@ -86,7 +94,7 @@ public class PlaceImageTable {
     private static PlaceImage buildPlaceImage(Cursor cursor){
         PlaceImage placeImage = new PlaceImage();
         placeImage.setImage(cursor.getBlob(cursor.getColumnIndex(IMAGE)));
-        placeImage.setPlaceId(cursor.getInt(cursor.getColumnIndex(PLACE_ID)));
+        placeImage.setPlaceId(cursor.getLong(cursor.getColumnIndex(PLACE_ID)));
         Calendar date = Calendar.getInstance(TimeZone.getDefault());
         date.setTime(new Date(cursor.getLong(cursor.getColumnIndex(DATE))));
         placeImage.setDate(date);
