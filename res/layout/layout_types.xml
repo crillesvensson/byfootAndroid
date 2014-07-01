@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    
+    <LinearLayout 
+        android:id="@+id/button_bar_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="?android:attr/buttonBarStyle"
+        >
+        <Button 
+            android:id="@+id/button_atm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="?android:attr/buttonBarButtonStyle"
+            android:text="@string/atm_button_text"
+            />
+        
+        <Button 
+            android:id="@+id/button_airport"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="?android:attr/buttonBarButtonStyle"
+            android:text="@string/airport_button_text"
+            />
+        
+        <Button 
+            android:id="@+id/button_cafe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="?android:attr/buttonBarButtonStyle"
+            android:text="@string/cafe_button_text"
+            /> 	
+    </LinearLayout>
+    
+    <LinearLayout 
+        android:id="@+id/button_bar_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/button_bar_1"
+        style="?android:attr/buttonBarStyle"
+        >
+        <Button 
+            android:id="@+id/button_food"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="?android:attr/buttonBarButtonStyle"
+            android:text="@string/food_button_text"
+            />
+        
+        <Button 
+            android:id="@+id/button_gym"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="?android:attr/buttonBarButtonStyle"
+            android:text="@string/gym_button_text"
+            />
+        
+        <Button 
+            android:id="@+id/button_hospital"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="?android:attr/buttonBarButtonStyle"
+            android:text="@string/hospital_button_text"
+            /> 	
+    </LinearLayout>
+    
+    <LinearLayout 
+        android:id="@+id/button_bar_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/button_bar_2"
+        style="?android:attr/buttonBarStyle"
+        >
+        <Button 
+            android:id="@+id/button_liquor_store"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="?android:attr/buttonBarButtonStyle"
+            android:text="@string/liquor_store_button_text"
+            />
+        
+        <Button 
+            android:id="@+id/button_movie_theater"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="?android:attr/buttonBarButtonStyle"
+            android:text="@string/movie_theater_button_text"
+            />
+        
+        <Button 
+            android:id="@+id/button_night_club"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="?android:attr/buttonBarButtonStyle"
+            android:text="@string/night_club_button_text"
+            /> 	
+    </LinearLayout>
+    
+    <LinearLayout 
+        android:id="@+id/button_bar_4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/button_bar_3"
+        style="?android:attr/buttonBarStyle"
+        >
+        <Button 
+            android:id="@+id/button_shopping_mall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="?android:attr/buttonBarButtonStyle"
+            android:text="@string/shopping_mall_button_text"
+            />
+        
+        <Button 
+            android:id="@+id/button_taxi_stand"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="?android:attr/buttonBarButtonStyle"
+            android:text="@string/taxi_stand_button_text"
+            />
+        
+        <Button 
+            android:id="@+id/button_zoo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="?android:attr/buttonBarButtonStyle"
+            android:text="@string/zoo_button_text"
+            /> 	
+    </LinearLayout>
+
+</RelativeLayout>

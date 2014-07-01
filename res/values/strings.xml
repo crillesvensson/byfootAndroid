@@ -33,5 +33,27 @@
 	<string name="list_image_content_description">First image connected to this place</string>
 	<string name="list_divider_content_description">List divider</string>
 	
+	<!-- Place fragment -->
+	<string name="list_search_hint">Search country or City</string>
+	<string name="list_search_button_text">Search</string>
+	<string name="list_type_button_text">Type</string>
+	
+	<!-- Types activity -->
+	<string name="atm_button_text">ATM</string>
+	<string name="airport_button_text">Airport</string>
+	<string name="cafe_button_text">Cafe</string>
+	
+	<string name="food_button_text">Food</string>
+	<string name="gym_button_text">Gym</string>
+	<string name="hospital_button_text">Hospital</string>
+	
+	<string name="liquor_store_button_text">Liquor</string>
+	<string name="movie_theater_button_text">Movies</string>
+	<string name="night_club_button_text">Club</string>
+	
+	<string name="shopping_mall_button_text">Mall</string>
+	<string name="taxi_stand_button_text">Taxi</string>
+	<string name="zoo_button_text">Zoo</string>
+	
 
 </resources>

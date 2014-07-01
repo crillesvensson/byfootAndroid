@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+    
+    <EditText 
+        android:id="@+id/list_search_input"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:hint="@string/list_search_hint"
+        android:textSize="12sp"
+        />
+    
+    <Button 
+        android:id="@+id/list_search_button"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_toRightOf="@id/list_search_input"
+        android:text="@string/list_search_button_text"
+        android:textSize="12sp"
+        />
+    
+    <Button 
+        android:id="@+id/list_type_button"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_toRightOf="@id/list_search_button"
+        android:text="@string/list_type_button_text"
+        android:textSize="12sp"
+        />
+</RelativeLayout>
