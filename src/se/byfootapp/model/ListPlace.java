@@ -1,9 +1,10 @@
 package se.byfootapp.model;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class ListPlace {
-
+public class ListPlace implements Serializable{
+    private static final long serialVersionUID = 1L;
     private Place place;
     private List<PlaceImage> placeImages;
     

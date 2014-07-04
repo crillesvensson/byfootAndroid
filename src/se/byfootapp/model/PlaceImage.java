@@ -1,8 +1,10 @@
 package se.byfootapp.model;
 
+import java.io.Serializable;
 import java.util.Calendar;
 
-public class PlaceImage {
+public class PlaceImage implements Serializable{
+    private static final long serialVersionUID = 1L;
     private byte[] image;
     private long placeId;
     private Calendar date;

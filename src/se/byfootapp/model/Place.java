@@ -1,6 +1,9 @@
 package se.byfootapp.model;
 
-public class Place {
+import java.io.Serializable;
+
+public class Place implements Serializable{
+    private static final long serialVersionUID = 1L;
     private Integer id;
     private String name;
     private String type;
