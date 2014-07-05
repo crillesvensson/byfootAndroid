@@ -83,6 +83,11 @@ public class PlaceTable {
         return places;
     }
     
+    public static void deletePlace(Place place, SQLiteDatabase db){
+        db.delete(TABLE_PLACE, KEY_ID + " = ?", new String[]{ String.valueOf(place.getId()) });
+        db.close();
+    }
+    
     private static Place buildPlace(Cursor cursor){
         Place place = new Place();
         place.setId(cursor.getInt(cursor.getColumnIndex(KEY_ID)));

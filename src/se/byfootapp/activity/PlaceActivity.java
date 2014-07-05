@@ -3,6 +3,7 @@ package se.byfootapp.activity;
 import se.byfootapp.MainByFootActivity;
 import se.byfootapp.R;
 import se.byfootapp.database.DatabaseHelper;
+import se.byfootapp.fragment.SavedFragment;
 import se.byfootapp.model.Place;
 import android.app.Activity;
 import android.content.Intent;
@@ -36,9 +37,7 @@ public class PlaceActivity extends Activity{
         
         this.place = (Place) this.getIntent().getSerializableExtra("place");
         
-        //Hide add place or images button depending if new place or not
-        
-        
+        //Hide add place or images button depending if new place or not  
         boolean newPlace = this.getIntent().getBooleanExtra("isNewPlace", true);
         setAction(newPlace);
         
@@ -63,15 +62,22 @@ public class PlaceActivity extends Activity{
     }
     
     public void addPlace(View view){
-        this.db.createPlace(this.place);
+        long placeId = this.db.createPlace(this.place);
+        this.place.setId((int)placeId);
         setAction(false);
-        MainByFootActivity.setTab(3);
+        SavedFragment.setBackFromDetailed(true);
+        MainByFootActivity.setTab(2);
     }
     
     public void images(View view){
         Intent intent = new Intent(this, ImagesActivity.class);
         intent.putExtra("place", this.place);
         startActivity(intent);
+    }
+    
+    public void deletePlace(View view){
+        this.db.deletePlace(this.place);
+        finish();
     }
     
     private void setAction(boolean newPlace){
@@ -83,6 +89,8 @@ public class PlaceActivity extends Activity{
             add.setEnabled(true);
             add.setVisibility(View.VISIBLE);
         }else{
+            Button delete = (Button)findViewById(R.id.delete_place_button);
+            delete.setVisibility(View.VISIBLE);
             add.setEnabled(false);
             add.setVisibility(View.GONE);
             images.setEnabled(true);

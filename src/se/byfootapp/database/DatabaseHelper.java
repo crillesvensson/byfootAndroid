@@ -73,6 +73,10 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         return PlaceTable.getPlaces(getWritableDatabase());
     }
     
+    public void deletePlace(Place place){
+        PlaceTable.deletePlace(place, getWritableDatabase());
+    }
+    
     //Place Image methods
     public long createPlaceImage(PlaceImage placeImage){
         return PlaceImageTable.createPlaceImage(placeImage, getWritableDatabase());

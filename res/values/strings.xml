@@ -59,6 +59,7 @@
 	<!-- Place acitivty -->
 	<string name="place_button_text">Add Place</string>
 	<string name="images_button_text">Images</string>
+	<string name="delete_place_button_text">Delete place</string>
 	
 	<!-- Images activity -->
 	<string name="add_new_image_button_text">Add new image</string>
