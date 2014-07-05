@@ -34,18 +34,21 @@ public class PlacesFragment extends ListFragment{
     private EditText searchBar;
     private Button searchButton;
     private Button typeButton;
-    private static List<String> typesList;
+    private static String type;
     
     @Override
     public void onActivityCreated(Bundle savedInstanceState){
         super.onActivityCreated(savedInstanceState);    
         //Remove divider
-        typesList = new ArrayList<String>();
+        type = "food";
         ListView list = this.getListView();
         if(list != null){
             list.setDividerHeight(0);
             View headerView = new ListHeader(this.getActivity().getBaseContext());
             if(headerView != null){
+                if(list.getAdapter() != null){
+                    list.setAdapter(null);
+                }
                 list.addHeaderView(headerView);
                 searchBar = (EditText)headerView.findViewById(R.id.list_search_input);
                 searchButton = (Button)headerView.findViewById(R.id.list_search_button);
@@ -58,8 +61,9 @@ public class PlacesFragment extends ListFragment{
             public void onItemClick(AdapterView<?> arg0, View arg1, int position,
                     long arg3) {
                 Intent intent = new Intent(getActivity(), PlaceActivity.class);
-                intent.putExtra("listplace", listPlaces.get(position));
-                startActivity(intent);
+                // position - 1 because header counts as first position
+                intent.putExtra("place", listPlaces.get(position - 1).getPlace());
+                getActivity().startActivity(intent);
             }
             
         });
@@ -105,25 +109,13 @@ public class PlacesFragment extends ListFragment{
             GooglePlaces googlePlaces = new GooglePlaces();
             
             Geocoder geoCoder = new Geocoder(getActivity().getBaseContext(), Locale.getDefault());
-            String types = "";
-            if(typesList.size() > 0){
-                for(int i = 0; i < typesList.size(); i++){
-                    if(i < typesList.size() -1){
-                        types += typesList.get(i) + "|"; 
-                    }else{
-                        types += typesList.get(i);
-                    }
-                }
-            }else{
-                types = "food";
-            }
             String locationName = locations[0];
             List<Address> addresses;
             try {
                 addresses = geoCoder.getFromLocationName(locationName, 1);
                 if(addresses != null && addresses.size() > 0){
                     Address address = addresses.get(0);    
-                    listPlaces = googlePlaces.search(getActivity(),address.getLatitude(), address.getLongitude(), 1000, types);
+                    listPlaces = googlePlaces.search(getActivity(),address.getLatitude(), address.getLongitude(), 1000, type);
                 }else{
                     Toast.makeText(getActivity().getBaseContext(), "Could not find any places", Toast.LENGTH_LONG).show();
                 }
@@ -143,12 +135,8 @@ public class PlacesFragment extends ListFragment{
         
     }
     
-    public static void addType(String type){
-        typesList.add(type);
-    }
-    
-    public static void removeType(String type){
-        typesList.remove(type);
+    public static void setType(String newType){
+        type = newType;
     }
     
     private void setUp(){

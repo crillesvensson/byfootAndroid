@@ -11,6 +11,18 @@ public class Types extends RelativeLayout{
     
     private int height;
     private int width;
+    public Button atm;
+    public Button airport;
+    public Button cafe;
+    public Button food;
+    public Button gym;
+    public Button hospital;
+    public Button liquor;
+    public Button movies;
+    public Button club;
+    public Button mall;
+    public Button taxi;
+    public Button zoo;
     
     public Types(Context context) {
         super(context);

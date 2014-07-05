@@ -1,6 +1,5 @@
 package se.byfootapp.adapter;
 
-import se.byfootapp.fragment.CameraFragment;
 import se.byfootapp.fragment.PlacesFragment;
 import se.byfootapp.fragment.ProfileFragment;
 import se.byfootapp.fragment.SavedFragment;
@@ -20,11 +19,9 @@ public class TabAdapter extends FragmentPagerAdapter{
         case 0:
             return new ProfileFragment();
         case 1:
-            return new CameraFragment();
-        case 2:
             return new PlacesFragment();
-        case 3:
-            return new SavedFragment();
+        case 2:
+            return new SavedFragment();     
         }
         
         return null;
@@ -32,7 +29,7 @@ public class TabAdapter extends FragmentPagerAdapter{
 
     @Override
     public int getCount() {
-        return 4;
+        return 3;
     }
 
 }

@@ -15,6 +15,7 @@
             android:layout_height="wrap_content"
             style="?android:attr/buttonBarButtonStyle"
             android:text="@string/atm_button_text"
+            android:onClick="changeType"
             />
         
         <Button 
@@ -23,6 +24,7 @@
             android:layout_height="wrap_content"
             style="?android:attr/buttonBarButtonStyle"
             android:text="@string/airport_button_text"
+            android:onClick="changeType"
             />
         
         <Button 
@@ -31,6 +33,7 @@
             android:layout_height="wrap_content"
             style="?android:attr/buttonBarButtonStyle"
             android:text="@string/cafe_button_text"
+            android:onClick="changeType"
             /> 	
     </LinearLayout>
     
@@ -47,6 +50,7 @@
             android:layout_height="wrap_content"
             style="?android:attr/buttonBarButtonStyle"
             android:text="@string/food_button_text"
+            android:onClick="changeType"
             />
         
         <Button 
@@ -55,6 +59,7 @@
             android:layout_height="wrap_content"
             style="?android:attr/buttonBarButtonStyle"
             android:text="@string/gym_button_text"
+            android:onClick="changeType"
             />
         
         <Button 
@@ -63,6 +68,7 @@
             android:layout_height="wrap_content"
             style="?android:attr/buttonBarButtonStyle"
             android:text="@string/hospital_button_text"
+            android:onClick="changeType"
             /> 	
     </LinearLayout>
     
@@ -79,6 +85,7 @@
             android:layout_height="wrap_content"
             style="?android:attr/buttonBarButtonStyle"
             android:text="@string/liquor_store_button_text"
+            android:onClick="changeType"
             />
         
         <Button 
@@ -87,6 +94,7 @@
             android:layout_height="wrap_content"
             style="?android:attr/buttonBarButtonStyle"
             android:text="@string/movie_theater_button_text"
+            android:onClick="changeType"
             />
         
         <Button 
@@ -95,6 +103,7 @@
             android:layout_height="wrap_content"
             style="?android:attr/buttonBarButtonStyle"
             android:text="@string/night_club_button_text"
+            android:onClick="changeType"
             /> 	
     </LinearLayout>
     
@@ -111,6 +120,7 @@
             android:layout_height="wrap_content"
             style="?android:attr/buttonBarButtonStyle"
             android:text="@string/shopping_mall_button_text"
+            android:onClick="changeType"
             />
         
         <Button 
@@ -119,6 +129,7 @@
             android:layout_height="wrap_content"
             style="?android:attr/buttonBarButtonStyle"
             android:text="@string/taxi_stand_button_text"
+            android:onClick="changeType"
             />
         
         <Button 
@@ -127,6 +138,7 @@
             android:layout_height="wrap_content"
             style="?android:attr/buttonBarButtonStyle"
             android:text="@string/zoo_button_text"
+            android:onClick="changeType"
             /> 	
     </LinearLayout>
 

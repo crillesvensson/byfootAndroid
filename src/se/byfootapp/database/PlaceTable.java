@@ -18,6 +18,7 @@ public class PlaceTable {
     private static final String TYPE = "type";
     private static final String LAT  = "lat";
     private static final String LON  = "lon";
+    private static final String ADDRESS = "address";
     
     //Database create table SQL statement
     private static final String CREATE_TABLE_PLACE = "CREATE TABLE "
@@ -26,7 +27,8 @@ public class PlaceTable {
             + NAME + " TEXT,"
             + TYPE + " TEXT,"
             + LAT + " REAL,"
-            + LON + " REAL"
+            + LON + " REAL,"
+            + ADDRESS + " TEXT"
             + ")";
     
     public static void onCreate(SQLiteDatabase db){
@@ -88,6 +90,7 @@ public class PlaceTable {
         place.setType(cursor.getString(cursor.getColumnIndex(TYPE)));
         place.setLat(cursor.getDouble(cursor.getColumnIndex(LAT)));
         place.setLon(cursor.getDouble(cursor.getColumnIndex(LON)));
+        place.setAddress(cursor.getString(cursor.getColumnIndex(ADDRESS)));
         return place;
     }
     
@@ -96,7 +99,8 @@ public class PlaceTable {
         values.put(NAME, place.getName());
         values.put(TYPE, place.getType());
         values.put(LAT, place.getLat());
-        values.put(LON, place.getLon());      
+        values.put(LON, place.getLon());
+        values.put(ADDRESS, place.getAddress());
         return values;
     }
 

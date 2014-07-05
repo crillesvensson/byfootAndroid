@@ -90,6 +90,10 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         return PlaceImageTable.getPlaceImagesForPlace(placeId, getWritableDatabase());
     }
     
+    public void deletePlaceImage(PlaceImage placeImage){
+        PlaceImageTable.deletePlaceImage(placeImage, getWritableDatabase());
+    }
+    
     //Place text methods
     public long createPlaceText(PlaceText placeText){
         return PlaceTextTable.createPlaceText(placeText, getWritableDatabase());

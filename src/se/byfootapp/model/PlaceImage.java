@@ -8,6 +8,7 @@ public class PlaceImage implements Serializable{
     private byte[] image;
     private long placeId;
     private Calendar date;
+    private Integer placeImageId;
     
     public byte[] getImage(){
         return this.image;
@@ -31,6 +32,14 @@ public class PlaceImage implements Serializable{
     
     public void setDate(Calendar date){
         this.date = date;
+    }
+
+    public Integer getPlaceImageId() {
+        return placeImageId;
+    }
+
+    public void setPlaceImageId(Integer placeImageId) {
+        this.placeImageId = placeImageId;
     }
     
 }

@@ -16,6 +16,7 @@
     <string name="camera_capture">Take image</string>
     <string name="camera_capture_new">Take new image</string>
     <string name="camera_save">Save</string>
+    <string name="camera_add_place">Add Place</string>
     
     <!-- Profile fragment -->
     <string name="logout">Logout</string>
@@ -55,5 +56,14 @@
 	<string name="taxi_stand_button_text">Taxi</string>
 	<string name="zoo_button_text">Zoo</string>
 	
+	<!-- Place acitivty -->
+	<string name="place_button_text">Add Place</string>
+	<string name="images_button_text">Images</string>
+	
+	<!-- Images activity -->
+	<string name="add_new_image_button_text">Add new image</string>
+	
+	<!-- Image activity -->
+	<string name="remove_image_button_text">Remove image</string>
 
 </resources>

@@ -28,10 +28,11 @@ public class MainByFootActivity extends FragmentActivity implements
     
     private TabAdapter tabAdapter;
     private ViewPager tabViewPager;
-    private String[] fragments = {"Profil", "Camera", "Places", "Saved"};
+    private String[] fragments = {"Profil", "Places", "Saved"};
     private ActionBar actionBar;
     private SharedPreferences sp;
     private Resources resources;
+    private static Integer selectedTab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +42,16 @@ public class MainByFootActivity extends FragmentActivity implements
         //Set shared preferences
         this.sp = this.getSharedPreferences(
                             this.resources.getString(R.string.sp_name), Context.MODE_PRIVATE);
+        
+        //Set initial tab
+        if (savedInstanceState == null) {
+            // TODO instanciate default values
+            selectedTab = 0;
+        } else {
+            //retrive saved tab
+            selectedTab = savedInstanceState.getInt("selectedtab");
+            System.out.println("saved tab is: " + selectedTab);
+        }
         
         //Adapter and pager setup
         this.tabAdapter = new TabAdapter(this.getSupportFragmentManager());
@@ -64,6 +75,24 @@ public class MainByFootActivity extends FragmentActivity implements
             this.actionBar.addTab(tab);
         }
         logIn();
+        System.out.println("oncreate");
+    }
+    
+    @Override
+    public void onResume(){
+        super.onResume();
+        if(this.actionBar != null && this.tabViewPager != null){
+            this.actionBar.setSelectedNavigationItem(selectedTab);
+            this.tabViewPager.setCurrentItem(selectedTab);
+        }
+    }
+    
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        // TODO save your instance to outState
+        System.out.println("save tab: " + selectedTab);
+        outState.putInt("selectedtab", selectedTab);
     }
 
     @Override
@@ -94,6 +123,7 @@ public class MainByFootActivity extends FragmentActivity implements
     @Override
     public void onTabSelected(Tab tab, FragmentTransaction ft) {
         this.tabViewPager.setCurrentItem(tab.getPosition());
+        selectedTab = tab.getPosition();
     }
 
     @Override
@@ -125,6 +155,10 @@ public class MainByFootActivity extends FragmentActivity implements
                 }
             }
         });
+    }
+    
+    public static void setTab(int newTab){
+        selectedTab = newTab;
     }
     
     public void logOut(View view){

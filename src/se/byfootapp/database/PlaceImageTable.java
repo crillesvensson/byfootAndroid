@@ -77,6 +77,11 @@ public class PlaceImageTable {
         return buildPlaceImages(cursor);
     }
     
+    public static void deletePlaceImage(PlaceImage placeImage, SQLiteDatabase db){
+        db.delete(TABLE_PLACE_IMAGE, KEY_ID + " = ?", new String[]{ String.valueOf(placeImage.getPlaceImageId()) });
+        db.close();
+    }
+    
     private static List<PlaceImage> buildPlaceImages(Cursor cursor){
         List<PlaceImage> placeImages = new ArrayList<PlaceImage>();
         boolean notEmpty = false;
@@ -93,6 +98,7 @@ public class PlaceImageTable {
     
     private static PlaceImage buildPlaceImage(Cursor cursor){
         PlaceImage placeImage = new PlaceImage();
+        placeImage.setPlaceImageId(cursor.getInt(cursor.getColumnIndex(KEY_ID)));
         placeImage.setImage(cursor.getBlob(cursor.getColumnIndex(IMAGE)));
         placeImage.setPlaceId(cursor.getLong(cursor.getColumnIndex(PLACE_ID)));
         Calendar date = Calendar.getInstance(TimeZone.getDefault());
