@@ -5,7 +5,6 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.TimeZone;
-
 import se.byfootapp.model.PlaceText;
 import android.content.ContentValues;
 import android.database.Cursor;
@@ -18,7 +17,7 @@ public class PlaceTextTable {
     
     //Database table columns    
     private static final String KEY_ID = "id";
-    private static final String TEXT = "image";
+    private static final String TEXT = "text";
     private static final String PLACE_ID = "placeID";
     private static final String DATE  = "date";
     
@@ -68,6 +67,18 @@ public class PlaceTextTable {
         return buildPlaceTexts(cursor);
     }
     
+    public static List<PlaceText> getPlaceTextForPlace(Integer placeId, SQLiteDatabase db){
+        String selectQuery = "SELECT * FROM " + TABLE_PLACE_TEXT
+                + " WHERE " + PLACE_ID + " == " + placeId;
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        return buildPlaceTexts(cursor);
+    }
+    
+    public static void deletePlaceText(PlaceText placeText, SQLiteDatabase db){
+        db.delete(TABLE_PLACE_TEXT, KEY_ID + " = ?", new String[]{ String.valueOf(placeText.getId()) });
+        db.close();
+    }
+    
     private static List<PlaceText> buildPlaceTexts(Cursor cursor){
         List<PlaceText> placeTexts = new ArrayList<PlaceText>();
         boolean notEmpty = false;
@@ -84,6 +95,7 @@ public class PlaceTextTable {
     
     private static PlaceText buildPlaceText(Cursor cursor){
        PlaceText placeText = new PlaceText();
+       placeText.setId(cursor.getInt(cursor.getColumnIndex(KEY_ID)));
        placeText.setText(cursor.getString(cursor.getColumnIndex(TEXT)));
        placeText.setPlaceId(cursor.getInt(cursor.getColumnIndex(PLACE_ID)));
        

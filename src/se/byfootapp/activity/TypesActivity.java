@@ -7,6 +7,7 @@ import se.byfootapp.fragment.PlacesFragment;
 import se.byfootapp.view.Types;
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
@@ -39,5 +40,18 @@ public class TypesActivity extends Activity{
         PlacesFragment.setType(types.get(typeButton.getText().toString()));
         finish();
     }
+    
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        //Call finish when up menu item is pressed
+        switch (item.getItemId()) {
+         case android.R.id.home:
+             finish();
+             break;
+          default:
+              break;
+          }
+        return true;
+      }
 
 }

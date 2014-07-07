@@ -60,11 +60,19 @@
 	<string name="place_button_text">Add Place</string>
 	<string name="images_button_text">Images</string>
 	<string name="delete_place_button_text">Delete place</string>
+	<string name="place_texts">Comments</string>
 	
 	<!-- Images activity -->
 	<string name="add_new_image_button_text">Add new image</string>
 	
 	<!-- Image activity -->
 	<string name="remove_image_button_text">Remove image</string>
+	
+	<!-- Text activity -->
+	<string name="add_text_button_text">Add comment</string>
+	
+	<!-- New text activity -->
+	<string name="new_text_title_text">Add new comment</string>
+	<string name="new_text_edittext_hint">Comment</string>
 
 </resources>

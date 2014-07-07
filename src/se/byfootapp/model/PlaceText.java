@@ -3,6 +3,7 @@ package se.byfootapp.model;
 import java.util.Calendar;
 
 public class PlaceText {
+    private Integer id;
     private String text;
     private Integer placeId;
     private Calendar date;
@@ -29,5 +30,13 @@ public class PlaceText {
     
     public void setDate(Calendar date){
         this.date = date;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 }

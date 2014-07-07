@@ -111,6 +111,10 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         return PlaceTextTable.getPlaceTexts(getWritableDatabase());
     }
     
+    public List<PlaceText> getPlaceTextForPlace(Integer placeId){
+        return PlaceTextTable.getPlaceTextForPlace(placeId, getWritableDatabase());
+    }
+    
     //Image text methods
     public long createImageText(ImageText imageText){
         return ImageTextTable.createImageText(imageText, getWritableDatabase());

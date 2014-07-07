@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    
+    <TextView 
+        android:id="@+id/new_text_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:layout_centerHorizontal="true"
+        android:text="@string/new_text_title_text"
+        android:textSize="25sp"
+        />
+    
+    <EditText 
+        android:id="@+id/new_text_edittext"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:inputType="text"
+        android:hint="@string/new_text_edittext_hint"
+        android:layout_below="@id/new_text_title"
+        android:layout_marginTop="10dp"
+        />
+    
+    <Button 
+        android:id="@+id/new_text_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/new_text_edittext"
+        android:text="@string/add_text_button_text"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:onClick="addComment"
+        android:textSize="12sp"
+        android:textColor="@color/white_color"
+        android:background="@drawable/shape_button"
+        />
+    
+
+</RelativeLayout>

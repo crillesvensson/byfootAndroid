@@ -75,6 +75,12 @@ public class PlaceActivity extends Activity{
         startActivity(intent);
     }
     
+    public void texts(View view){
+        Intent intent = new Intent(this, TextActivity.class);
+        intent.putExtra("place", this.place);
+        startActivity(intent);
+    }
+    
     public void deletePlace(View view){
         this.db.deletePlace(this.place);
         finish();
@@ -82,10 +88,14 @@ public class PlaceActivity extends Activity{
     
     private void setAction(boolean newPlace){
         Button images = (Button)findViewById(R.id.images_button);
+        Button texts = (Button)findViewById(R.id.texts_button);
         Button add = (Button)findViewById(R.id.place_button);
+        
         if(newPlace){
             images.setEnabled(false);
             images.setVisibility(View.GONE);
+            texts.setEnabled(false);
+            texts.setVisibility(View.GONE);
             add.setEnabled(true);
             add.setVisibility(View.VISIBLE);
         }else{
@@ -95,6 +105,8 @@ public class PlaceActivity extends Activity{
             add.setVisibility(View.GONE);
             images.setEnabled(true);
             images.setVisibility(View.VISIBLE);
+            texts.setEnabled(true);
+            texts.setVisibility(View.VISIBLE);
         }
     }
     
