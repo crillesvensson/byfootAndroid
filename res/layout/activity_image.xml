@@ -12,6 +12,8 @@
         android:layout_centerHorizontal="true"
         android:onClick="removeImage"
         android:textSize="12sp"
+        android:textColor="@color/white_color"
+        android:background="@drawable/shape_button"
         />
     
     <ImageView 
