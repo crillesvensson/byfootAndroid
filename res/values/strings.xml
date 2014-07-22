@@ -38,6 +38,7 @@
 	<string name="list_search_hint">Search country or City</string>
 	<string name="list_search_button_text">Search</string>
 	<string name="list_type_button_text">Type</string>
+	<string name="more_results_button_text">More results</string>
 	
 	<!-- Types activity -->
 	<string name="atm_button_text">ATM</string>

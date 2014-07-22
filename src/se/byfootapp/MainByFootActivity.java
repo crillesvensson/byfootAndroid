@@ -43,16 +43,6 @@ public class MainByFootActivity extends FragmentActivity implements
         this.sp = this.getSharedPreferences(
                             this.resources.getString(R.string.sp_name), Context.MODE_PRIVATE);
         
-        //Set initial tab
-        if (savedInstanceState == null) {
-            // TODO instanciate default values
-            selectedTab = 0;
-        } else {
-            //retrive saved tab
-            selectedTab = savedInstanceState.getInt("selectedtab");
-            System.out.println("saved tab is: " + selectedTab);
-        }
-        
         //Adapter and pager setup
         this.tabAdapter = new TabAdapter(this.getSupportFragmentManager());
         this.tabViewPager = (ViewPager)findViewById(R.id.pager);
@@ -75,7 +65,6 @@ public class MainByFootActivity extends FragmentActivity implements
             this.actionBar.addTab(tab);
         }
         logIn();
-        System.out.println("oncreate");
     }
     
     @Override
@@ -85,14 +74,6 @@ public class MainByFootActivity extends FragmentActivity implements
             this.actionBar.setSelectedNavigationItem(selectedTab);
             this.tabViewPager.setCurrentItem(selectedTab);
         }
-    }
-    
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        // TODO save your instance to outState
-        System.out.println("save tab: " + selectedTab);
-        outState.putInt("selectedtab", selectedTab);
     }
 
     @Override

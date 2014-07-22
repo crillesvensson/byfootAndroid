@@ -42,7 +42,9 @@ public class PlaceTable {
     
     public static long createPlace(Place place, SQLiteDatabase db){
         ContentValues values = buildContentValues(place);
-        return db.insert(TABLE_PLACE, null, values);
+        long value = db.insert(TABLE_PLACE, null, values);
+        db.close();
+        return value;
     }
     
     public static Place getPlace(Integer placeId, SQLiteDatabase db){
@@ -59,14 +61,23 @@ public class PlaceTable {
         if(isNotEmpty){
             place = buildPlace(cursor);
         }
+        cursor.close();
+        db.close();
         return place;
     }
     
     public static List<Place> getPlaces(SQLiteDatabase db){
-        String selectQuery = "SELECT * FROM " + TABLE_PLACE;
-        
+        String selectQuery = "SELECT * FROM " + TABLE_PLACE;  
         Cursor cursor = db.rawQuery(selectQuery, null);
-        return buildPlaces(cursor);
+        List<Place> places = buildPlaces(cursor);
+        cursor.close();
+        db.close();
+        return places;
+    }
+    
+    public static void deletePlace(Place place, SQLiteDatabase db){
+        db.delete(TABLE_PLACE, KEY_ID + " = ?", new String[]{ String.valueOf(place.getId()) });
+        db.close();
     }
     
     private static List<Place> buildPlaces(Cursor cursor){
@@ -81,11 +92,6 @@ public class PlaceTable {
             }while(cursor.moveToNext());
         }
         return places;
-    }
-    
-    public static void deletePlace(Place place, SQLiteDatabase db){
-        db.delete(TABLE_PLACE, KEY_ID + " = ?", new String[]{ String.valueOf(place.getId()) });
-        db.close();
     }
     
     private static Place buildPlace(Cursor cursor){

@@ -614,26 +614,26 @@ containing a value of this type.
         public static final int shape_button=0x7f020047;
     }
     public static final class id {
-        public static final int action_settings=0x7f060064;
+        public static final int action_settings=0x7f060065;
         public static final int add_new_image=0x7f060018;
         public static final int add_text_button=0x7f060026;
         public static final int book_now=0x7f060010;
-        public static final int button_airport=0x7f060056;
-        public static final int button_atm=0x7f060055;
-        public static final int button_bar_1=0x7f060054;
-        public static final int button_bar_2=0x7f060058;
-        public static final int button_bar_3=0x7f06005c;
-        public static final int button_bar_4=0x7f060060;
-        public static final int button_cafe=0x7f060057;
-        public static final int button_food=0x7f060059;
-        public static final int button_gym=0x7f06005a;
-        public static final int button_hospital=0x7f06005b;
-        public static final int button_liquor_store=0x7f06005d;
-        public static final int button_movie_theater=0x7f06005e;
-        public static final int button_night_club=0x7f06005f;
-        public static final int button_shopping_mall=0x7f060061;
-        public static final int button_taxi_stand=0x7f060062;
-        public static final int button_zoo=0x7f060063;
+        public static final int button_airport=0x7f060057;
+        public static final int button_atm=0x7f060056;
+        public static final int button_bar_1=0x7f060055;
+        public static final int button_bar_2=0x7f060059;
+        public static final int button_bar_3=0x7f06005d;
+        public static final int button_bar_4=0x7f060061;
+        public static final int button_cafe=0x7f060058;
+        public static final int button_food=0x7f06005a;
+        public static final int button_gym=0x7f06005b;
+        public static final int button_hospital=0x7f06005c;
+        public static final int button_liquor_store=0x7f06005e;
+        public static final int button_movie_theater=0x7f06005f;
+        public static final int button_night_club=0x7f060060;
+        public static final int button_shopping_mall=0x7f060062;
+        public static final int button_taxi_stand=0x7f060063;
+        public static final int button_zoo=0x7f060064;
         public static final int buyButton=0x7f06000a;
         public static final int buy_now=0x7f06000f;
         public static final int buy_with_google=0x7f06000e;
@@ -665,7 +665,7 @@ containing a value of this type.
         public static final int com_facebook_usersettingsfragment_profile_name=0x7f060040;
         public static final int delete_place_button=0x7f060022;
         public static final int grayscale=0x7f060012;
-        public static final int grid_image=0x7f060045;
+        public static final int grid_image=0x7f060046;
         public static final int holo_dark=0x7f060005;
         public static final int holo_light=0x7f060006;
         public static final int hybrid=0x7f060004;
@@ -673,18 +673,19 @@ containing a value of this type.
         public static final int images=0x7f060019;
         public static final int images_button=0x7f060021;
         public static final int large=0x7f060015;
-        public static final int list_divider_one=0x7f060049;
-        public static final int list_divider_two=0x7f06004a;
-        public static final int list_image=0x7f060047;
-        public static final int list_items=0x7f060046;
-        public static final int list_search_button=0x7f060043;
-        public static final int list_search_input=0x7f060042;
-        public static final int list_title=0x7f060048;
-        public static final int list_type_button=0x7f060044;
-        public static final int logOut=0x7f060051;
+        public static final int list_divider_one=0x7f06004a;
+        public static final int list_divider_two=0x7f06004b;
+        public static final int list_image=0x7f060048;
+        public static final int list_items=0x7f060047;
+        public static final int list_search_button=0x7f060044;
+        public static final int list_search_input=0x7f060043;
+        public static final int list_title=0x7f060049;
+        public static final int list_type_button=0x7f060045;
+        public static final int logOut=0x7f060052;
         public static final int map=0x7f060025;
         public static final int match_parent=0x7f06000c;
         public static final int monochrome=0x7f060013;
+        public static final int more_results_button=0x7f060042;
         public static final int new_text_button=0x7f06001d;
         public static final int new_text_edittext=0x7f06001c;
         public static final int new_text_title=0x7f06001b;
@@ -696,18 +697,18 @@ containing a value of this type.
         public static final int place_address=0x7f060024;
         public static final int place_button=0x7f060020;
         public static final int place_name=0x7f060023;
-        public static final int place_text=0x7f060053;
-        public static final int places=0x7f06004b;
+        public static final int place_text=0x7f060054;
+        public static final int places=0x7f06004c;
         public static final int production=0x7f060007;
-        public static final int profile_birthday=0x7f060050;
-        public static final int profile_first_name=0x7f06004e;
-        public static final int profile_last_name=0x7f06004f;
-        public static final int profile_name=0x7f06004d;
-        public static final int profile_picture=0x7f06004c;
+        public static final int profile_birthday=0x7f060051;
+        public static final int profile_first_name=0x7f06004f;
+        public static final int profile_last_name=0x7f060050;
+        public static final int profile_name=0x7f06004e;
+        public static final int profile_picture=0x7f06004d;
         public static final int remove_image_button=0x7f060016;
         public static final int sandbox=0x7f060008;
         public static final int satellite=0x7f060002;
-        public static final int saved=0x7f060052;
+        public static final int saved=0x7f060053;
         public static final int selectionDetails=0x7f06000b;
         public static final int small=0x7f060014;
         public static final int strict_sandbox=0x7f060009;
@@ -741,14 +742,15 @@ containing a value of this type.
         public static final int com_facebook_search_bar_layout=0x7f030012;
         public static final int com_facebook_tooltip_bubble=0x7f030013;
         public static final int com_facebook_usersettingsfragment=0x7f030014;
-        public static final int layout_list_header=0x7f030015;
-        public static final int layout_list_images_grid=0x7f030016;
-        public static final int layout_list_item=0x7f030017;
-        public static final int layout_places=0x7f030018;
-        public static final int layout_profile=0x7f030019;
-        public static final int layout_saved=0x7f03001a;
-        public static final int layout_text_list_item=0x7f03001b;
-        public static final int layout_types=0x7f03001c;
+        public static final int layout_list_footer=0x7f030015;
+        public static final int layout_list_header=0x7f030016;
+        public static final int layout_list_images_grid=0x7f030017;
+        public static final int layout_list_item=0x7f030018;
+        public static final int layout_places=0x7f030019;
+        public static final int layout_profile=0x7f03001a;
+        public static final int layout_saved=0x7f03001b;
+        public static final int layout_text_list_item=0x7f03001c;
+        public static final int layout_types=0x7f03001d;
     }
     public static final class menu {
         public static final int main_by_foot=0x7f0a0000;
@@ -757,23 +759,23 @@ containing a value of this type.
         public static final int action_settings=0x7f04003c;
         /**  Images activity 
          */
-        public static final int add_new_image_button_text=0x7f040061;
+        public static final int add_new_image_button_text=0x7f040062;
         /**  Text activity 
          */
-        public static final int add_text_button_text=0x7f040063;
-        public static final int airport_button_text=0x7f040052;
+        public static final int add_text_button_text=0x7f040064;
+        public static final int airport_button_text=0x7f040053;
         public static final int app_id=0x7f04003d;
         public static final int app_name=0x7f04003a;
         /**  Types activity 
          */
-        public static final int atm_button_text=0x7f040051;
+        public static final int atm_button_text=0x7f040052;
         public static final int auth_client_needs_enabling_title=0x7f040001;
         public static final int auth_client_needs_installation_title=0x7f040002;
         public static final int auth_client_needs_update_title=0x7f040003;
         public static final int auth_client_play_services_err_notification_msg=0x7f040004;
         public static final int auth_client_requested_by_msg=0x7f040005;
         public static final int auth_client_using_bad_version_title=0x7f040000;
-        public static final int cafe_button_text=0x7f040053;
+        public static final int cafe_button_text=0x7f040054;
         public static final int camera_add_place=0x7f040045;
         /**  Camera fragment 
          */
@@ -896,13 +898,13 @@ containing a value of this type.
         /**  Long form sign-in button text [CHAR LIMIT=30] 
          */
         public static final int common_signin_button_text_long=0x7f04001e;
-        public static final int delete_place_button_text=0x7f04005f;
-        public static final int food_button_text=0x7f040054;
-        public static final int gym_button_text=0x7f040055;
+        public static final int delete_place_button_text=0x7f040060;
+        public static final int food_button_text=0x7f040055;
+        public static final int gym_button_text=0x7f040056;
         public static final int hello_world=0x7f04003b;
-        public static final int hospital_button_text=0x7f040056;
-        public static final int images_button_text=0x7f04005e;
-        public static final int liquor_store_button_text=0x7f040057;
+        public static final int hospital_button_text=0x7f040057;
+        public static final int images_button_text=0x7f04005f;
+        public static final int liquor_store_button_text=0x7f040058;
         public static final int list_divider_content_description=0x7f04004d;
         /**  Save places 
          */
@@ -915,29 +917,30 @@ containing a value of this type.
         /**  Profile fragment 
          */
         public static final int logout=0x7f040046;
-        public static final int movie_theater_button_text=0x7f040058;
-        public static final int new_text_edittext_hint=0x7f040065;
+        public static final int more_results_button_text=0x7f040051;
+        public static final int movie_theater_button_text=0x7f040059;
+        public static final int new_text_edittext_hint=0x7f040066;
         /**  New text activity 
          */
-        public static final int new_text_title_text=0x7f040064;
-        public static final int night_club_button_text=0x7f040059;
+        public static final int new_text_title_text=0x7f040065;
+        public static final int night_club_button_text=0x7f04005a;
         /**  Place acitivty 
          */
-        public static final int place_button_text=0x7f04005d;
-        public static final int place_texts=0x7f040060;
+        public static final int place_button_text=0x7f04005e;
+        public static final int place_texts=0x7f040061;
         public static final int places_fragment=0x7f04003f;
         public static final int profile_fragment=0x7f040040;
         /**  Image activity 
          */
-        public static final int remove_image_button_text=0x7f040062;
+        public static final int remove_image_button_text=0x7f040063;
         /**  Fragments 
          */
         public static final int saved_fragment=0x7f04003e;
-        public static final int shopping_mall_button_text=0x7f04005a;
+        public static final int shopping_mall_button_text=0x7f04005b;
         /**  SharedPreferences 
          */
         public static final int sp_name=0x7f040047;
-        public static final int taxi_stand_button_text=0x7f04005b;
+        public static final int taxi_stand_button_text=0x7f04005c;
         public static final int user_birthday=0x7f04004a;
         /**  User 
          */
@@ -948,7 +951,7 @@ containing a value of this type.
          available or up-to-date 
          */
         public static final int wallet_buy_button_place_holder=0x7f04001f;
-        public static final int zoo_button_text=0x7f04005c;
+        public static final int zoo_button_text=0x7f04005d;
     }
     public static final class style {
         /** 

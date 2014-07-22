@@ -42,6 +42,7 @@ public class ImageTextTable {
     
     public static long createImageText(ImageText imageText, SQLiteDatabase db){
         ContentValues values = buildContentValues(imageText);
+        db.close();
         return db.insert(TABLE_IMAGE_TEXT, null, values);
     }
     
@@ -58,13 +59,19 @@ public class ImageTextTable {
         if(notEmpty){
             imageText = buildImageText(cursor);
         }
+        cursor.close();
+        db.close();
         return imageText;
     }
     
     public static List<ImageText> getImageTexts(SQLiteDatabase db){
         String selectQuery = "SELECT * FROM " + TABLE_IMAGE_TEXT;
         Cursor cursor = db.rawQuery(selectQuery, null);
-        return buildImageTexts(cursor);
+        
+        List<ImageText> imageTexts = buildImageTexts(cursor);
+        cursor.close();
+        db.close();
+        return imageTexts;
     }
     
     private static List<ImageText> buildImageTexts(Cursor cursor){
@@ -78,7 +85,6 @@ public class ImageTextTable {
                 imageTexts.add(buildImageText(cursor));
             }while(cursor.moveToNext());
         }
-        
         return imageTexts;
     }
     

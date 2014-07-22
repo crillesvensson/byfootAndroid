@@ -10,6 +10,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import se.byfootapp.fragment.PlacesFragment;
 import se.byfootapp.http.HTTPClient;
 import se.byfootapp.model.ListPlace;
 import se.byfootapp.model.PlaceImage;
@@ -22,14 +23,23 @@ public class GooglePlaces {
     private final String API_KEY = "AIzaSyALBJqkR9FgV3XuhxqtaC2Ef5F0rxtZIs4";
     private final String GOOGLE_URL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=";
     
-    public List<ListPlace> search(Context context, double lat, double lon, double radius, String types){
+    public List<ListPlace> search(Context context, double lat, double lon, double radius, String types, String pageToken){
         List<ListPlace> listPlaces = new ArrayList<ListPlace>();
         
         try{
              String url = GOOGLE_URL + lat + "," + lon + "&rankby=distance&types=" + types + "&key=" + API_KEY;
+             if(!pageToken.equals("null")){
+                 url += "&pagetoken="+pageToken;
+             }
              HTTPClient httpClient = new HTTPClient();
              
              JSONObject response = httpClient.getResponseAsJSON(url);
+             if(response.has("next_page_token") && !response.isNull("next_page_token")){
+                 PlacesFragment.showFooterView(true);
+                 PlacesFragment.setPageToken(response.getString("next_page_token"));
+             }else{
+                 PlacesFragment.showFooterView(false); 
+             }
              System.out.println(response);
              ModelParser<ListPlace> placeParser = ModelParserFactory.getParser(ListPlace.class);
              if(response != null && !response.isNull("results")){

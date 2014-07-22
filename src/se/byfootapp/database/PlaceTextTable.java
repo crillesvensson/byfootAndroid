@@ -41,7 +41,9 @@ public class PlaceTextTable {
     
     public static long createPlaceText(PlaceText placeText, SQLiteDatabase db){
         ContentValues values = buildContentValues(placeText);
-        return db.insert(TABLE_PLACE_TEXT, null, values);
+        long value = db.insert(TABLE_PLACE_TEXT, null, values);
+        db.close();
+        return value;
     }
     
     public static PlaceText getPlaceText(Integer placeTextId, SQLiteDatabase db){
@@ -57,21 +59,28 @@ public class PlaceTextTable {
         if(notEmpty){
             placeText = buildPlaceText(cursor);
         }
+        cursor.close();
+        db.close();
         return placeText;
     }
     
     public static List<PlaceText> getPlaceTexts(SQLiteDatabase db){
         String selectQuery = "SELECT * FROM " + TABLE_PLACE_TEXT;
-        
         Cursor cursor = db.rawQuery(selectQuery, null);
-        return buildPlaceTexts(cursor);
+        List<PlaceText> placeTexts = buildPlaceTexts(cursor);
+        cursor.close();
+        db.close();
+        return placeTexts;
     }
     
     public static List<PlaceText> getPlaceTextForPlace(Integer placeId, SQLiteDatabase db){
         String selectQuery = "SELECT * FROM " + TABLE_PLACE_TEXT
                 + " WHERE " + PLACE_ID + " == " + placeId;
         Cursor cursor = db.rawQuery(selectQuery, null);
-        return buildPlaceTexts(cursor);
+        List<PlaceText> placeTexts = buildPlaceTexts(cursor);
+        cursor.close();
+        db.close();
+        return placeTexts;
     }
     
     public static void deletePlaceText(PlaceText placeText, SQLiteDatabase db){
@@ -97,12 +106,10 @@ public class PlaceTextTable {
        PlaceText placeText = new PlaceText();
        placeText.setId(cursor.getInt(cursor.getColumnIndex(KEY_ID)));
        placeText.setText(cursor.getString(cursor.getColumnIndex(TEXT)));
-       placeText.setPlaceId(cursor.getInt(cursor.getColumnIndex(PLACE_ID)));
-       
+       placeText.setPlaceId(cursor.getInt(cursor.getColumnIndex(PLACE_ID)));     
        Calendar date = Calendar.getInstance(TimeZone.getDefault());
        date.setTime(new Date(cursor.getLong(cursor.getColumnIndex(DATE))));
        placeText.setDate(date);
-       
        return placeText;
     }
     

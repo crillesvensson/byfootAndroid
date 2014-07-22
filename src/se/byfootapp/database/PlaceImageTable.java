@@ -42,7 +42,9 @@ public class PlaceImageTable {
     
     public static long createPlaceImage(PlaceImage placeImage, SQLiteDatabase db){
         ContentValues values = buildContentValues(placeImage);
-        return db.insert(TABLE_PLACE_IMAGE, null, values);
+        long value = db.insert(TABLE_PLACE_IMAGE, null, values);
+        db.close();
+        return value;
     }
     
     public static PlaceImage getPlaceImage(Integer placeImageId, SQLiteDatabase db){
@@ -59,22 +61,28 @@ public class PlaceImageTable {
         if(notEmpty){
             placeImage = buildPlaceImage(cursor);
         }
+        cursor.close();
+        db.close();
         return placeImage;
     }
     
     public static List<PlaceImage> getPlaceImages(SQLiteDatabase db){
-        String selectQuery = "SELECT * FROM " + TABLE_PLACE_IMAGE;
-        
+        String selectQuery = "SELECT * FROM " + TABLE_PLACE_IMAGE;    
         Cursor cursor = db.rawQuery(selectQuery, null);
-        return buildPlaceImages(cursor);
+        List<PlaceImage> placeImages = buildPlaceImages(cursor);
+        cursor.close();
+        db.close();
+        return placeImages;
     }
     
     public static List<PlaceImage> getPlaceImagesForPlace(Integer placeId, SQLiteDatabase db){
         String selectQuery = "SELECT * FROM " + TABLE_PLACE_IMAGE
                             + " WHERE " + PLACE_ID + " == " + placeId;
-        
         Cursor cursor = db.rawQuery(selectQuery, null);
-        return buildPlaceImages(cursor);
+        List<PlaceImage> placeImages = buildPlaceImages(cursor);
+        cursor.close();
+        db.close();
+        return placeImages;
     }
     
     public static void deletePlaceImage(PlaceImage placeImage, SQLiteDatabase db){

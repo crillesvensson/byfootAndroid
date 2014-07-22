@@ -1,5 +1,7 @@
 package se.byfootapp.parser;
 
+import com.google.android.gms.maps.model.LatLng;
+
 import se.byfootapp.model.ListPlace;
 
 public class ModelParserFactory {
@@ -11,6 +13,8 @@ public class ModelParserFactory {
         
         if(ListPlace.class.isAssignableFrom(targetType)){
             return (ModelParser<T>) parsers.getPlaceParser();
+        }else if(LatLng.class.isAssignableFrom(targetType)){
+            return (ModelParser<T>) parsers.getLocationParser();
         }
         
         throw new IllegalArgumentException("Unable to locate model parser for " + targetType.getName());
@@ -20,6 +24,10 @@ public class ModelParserFactory {
         
         public ModelParser<ListPlace> getPlaceParser(){
             return new PlaceParcer();
+        }
+        
+        public ModelParser<LatLng> getLocationParser(){
+            return new LocationParser();
         }
     }
 }
