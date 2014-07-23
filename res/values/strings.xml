@@ -62,6 +62,7 @@
 	<string name="images_button_text">Images</string>
 	<string name="delete_place_button_text">Delete place</string>
 	<string name="place_texts">Comments</string>
+	<string name="website">www</string>
 	
 	<!-- Images activity -->
 	<string name="add_new_image_button_text">Add new image</string>

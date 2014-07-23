@@ -10,6 +10,7 @@ public class Place implements Serializable{
     private Double lat;
     private Double lon;
     private String address;
+    private String placeID;
     
     public Integer getId() {
         return id;
@@ -57,5 +58,13 @@ public class Place implements Serializable{
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getPlaceID() {
+        return placeID;
+    }
+
+    public void setPlaceID(String reference) {
+        this.placeID = reference;
     }
 }

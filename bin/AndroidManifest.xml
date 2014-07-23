@@ -91,6 +91,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="se.byfootapp.activity.NewTextActivity" />
         </activity>
+        <activity
+            android:name="se.byfootapp.activity.WebActivity"
+            android:label="@string/app_name" 
+            android:parentActivityName="se.byfootapp.activity.PlaceActivity"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="se.byfootapp.activity.PlaceActivity" />
+        </activity>
         
         <meta-data android:value="@string/app_id" android:name="com.facebook.sdk.ApplicationId"/>
         <activity 

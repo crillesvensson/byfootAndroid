@@ -15,7 +15,9 @@ public class PlaceParcer implements ModelParser<ListPlace>{
         Double lon = null;
         String name = "";
         String address = "";
+        String placeID = "";
         String typesAsString = "";
+        
         if(json.has("geometry") && !json.isNull("geometry")){
             JSONObject geometry = json.getJSONObject("geometry");
             if(geometry.has("location") && !geometry.isNull("location")){
@@ -37,6 +39,10 @@ public class PlaceParcer implements ModelParser<ListPlace>{
             address = json.getString("vicinity");
         }
         
+        if(json.has("place_id") && !json.isNull("place_id")){
+            placeID = json.getString("place_id");
+        }
+        
         if(json.has("types") && !json.isNull("types")){
             JSONArray types = json.getJSONArray("types");
             for(int i = 0; i < types.length(); i++){
@@ -52,6 +58,7 @@ public class PlaceParcer implements ModelParser<ListPlace>{
         place.setLon(lon);
         place.setName(name);
         place.setAddress(address);
+        place.setPlaceID(placeID);
         place.setType(typesAsString);
         
         listPlace.setPlace(place);

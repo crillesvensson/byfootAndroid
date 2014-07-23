@@ -1,17 +1,33 @@
 package se.byfootapp.activity;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import se.byfootapp.MainByFootActivity;
 import se.byfootapp.R;
+import se.byfootapp.adapter.ReviewsAdapter;
+import se.byfootapp.common.Common;
 import se.byfootapp.database.DatabaseHelper;
 import se.byfootapp.fragment.SavedFragment;
+import se.byfootapp.http.HTTPClient;
 import se.byfootapp.model.Place;
+import se.byfootapp.model.Review;
+import se.byfootapp.parser.ModelParser;
+import se.byfootapp.parser.ModelParserFactory;
 import android.app.Activity;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -24,6 +40,10 @@ public class PlaceActivity extends Activity{
     private GoogleMap map;
     private Place place;
     private DatabaseHelper db;
+    private String website;
+    private ListView reviewList;
+    private List<Review> reviews;
+    private final String DETAILED_URL = "https://maps.googleapis.com/maps/api/place/details/json?placeid=";
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +73,11 @@ public class PlaceActivity extends Activity{
                 markPlace(position);
             }
         }
+        
+        this.reviewList = (ListView)findViewById(R.id.reviews_list);
+        
+        LoadPlaceDetailed loadPlaceDetailed = new LoadPlaceDetailed();
+        loadPlaceDetailed.execute();
     }
     
     
@@ -111,15 +136,77 @@ public class PlaceActivity extends Activity{
     }
     
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.place_activity, menu);
+        return true;
+    }
+    
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         //Call finish when up menu item is pressed
         switch (item.getItemId()) {
          case android.R.id.home:
              finish();
              break;
+         case R.id.website:
+             if(website != null && website.length() > 0){
+                 Intent intent = new Intent(this, WebActivity.class);
+                 intent.putExtra("url", website);
+                 startActivity(intent);
+             }else{
+                 Toast.makeText(this, "No Website found for this place", Toast.LENGTH_LONG).show();
+             }
+             break;
           default:
               break;
           }
         return true;
       }
+    
+    private void setUpReview(){
+        this.reviewList.setAdapter(new ReviewsAdapter(this, R.layout.layout_list_reviews, this.reviews));
+    }
+    
+    private class LoadPlaceDetailed extends AsyncTask<Void, Void, Boolean>{
+
+        @Override
+        protected Boolean doInBackground(Void... params) {
+            boolean loadResult = true;
+            String url = DETAILED_URL + place.getPlaceID() + "&key=" + Common.GOOGLE_API_KEY;
+            HTTPClient httpClient = new HTTPClient();
+            try {
+                JSONObject response = httpClient.getResponseAsJSON(url);
+                if(response.has("result") && !response.isNull("result")){
+                    JSONObject result  = response.getJSONObject("result");
+                    if(result.has("website") && ! result.isNull("website")){
+                        website = result.getString("website");
+                    }
+                    if(result.has("reviews") && !result.isNull("reviews")){
+                        ModelParser<Review> reviewParser = ModelParserFactory.getParser(Review.class);
+                        JSONArray reviewsJSON = result.getJSONArray("reviews");
+                        reviews = new ArrayList<Review>(); 
+                        for(int i = 0; i < reviewsJSON.length(); i++){
+                            JSONObject review = reviewsJSON.getJSONObject(i);
+                            reviews.add(reviewParser.doParse(review));
+                        }
+                    }else{
+                        loadResult = false;
+                    }
+                    
+                }
+            } catch (Exception e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+            return loadResult;
+        }
+        
+        @Override
+        protected void onPostExecute(Boolean result) {
+            if(result){
+                setUpReview();
+            }
+        }
+        
+    }
 }

@@ -6,16 +6,23 @@
     android:layout_height="match_parent"
     android:background="@color/white_color" >
     
+     <fragment
+          android:id="@+id/map"
+          android:layout_width="match_parent"
+          android:layout_height="150dp"
+          android:name="com.google.android.gms.maps.MapFragment"/>
+    
     <RelativeLayout
         android:id="@+id/place_action"
         android:layout_width="match_parent"
     	android:layout_height="wrap_content"
+    	android:layout_below="@id/map"
         >
         
     <Button 
         android:id="@+id/texts_button"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="30dp"
         android:text="@string/place_texts"
         android:layout_marginTop="10dp"
         android:layout_alignParentLeft="true"
@@ -29,7 +36,7 @@
     <Button 
         android:id="@+id/place_button"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="30dp"
         android:text="@string/place_button_text"
         android:layout_marginTop="10dp"
         android:layout_centerHorizontal="true"
@@ -42,7 +49,7 @@
     <Button 
         android:id="@+id/images_button"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="30dp"
         android:text="@string/images_button_text"
         android:layout_marginTop="10dp"
         android:layout_centerHorizontal="true"
@@ -55,7 +62,7 @@
     <Button 
         android:id="@+id/delete_place_button"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="30dp"
         android:text="@string/delete_place_button_text"
         android:layout_marginTop="10dp"
         android:layout_alignParentRight="true"
@@ -85,12 +92,12 @@
         android:layout_centerHorizontal="true"
         />
     
-    <fragment
-          android:id="@+id/map"
-          android:layout_width="match_parent"
-          android:layout_height="match_parent"
-          android:layout_below="@id/place_address"
-          android:layout_marginTop="10dp"
-          android:name="com.google.android.gms.maps.MapFragment"/>
+    <ListView 
+        android:id="@+id/reviews_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/place_address"
+        />
+   
 
 </RelativeLayout>

@@ -20,14 +20,13 @@ import android.content.Context;
 
 public class GooglePlaces {
 
-    private final String API_KEY = "AIzaSyALBJqkR9FgV3XuhxqtaC2Ef5F0rxtZIs4";
     private final String GOOGLE_URL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=";
     
     public List<ListPlace> search(Context context, double lat, double lon, double radius, String types, String pageToken){
         List<ListPlace> listPlaces = new ArrayList<ListPlace>();
         
         try{
-             String url = GOOGLE_URL + lat + "," + lon + "&rankby=distance&types=" + types + "&key=" + API_KEY;
+             String url = GOOGLE_URL + lat + "," + lon + "&rankby=distance&types=" + types + "&key=" + Common.GOOGLE_API_KEY;
              if(!pageToken.equals("null")){
                  url += "&pagetoken="+pageToken;
              }
