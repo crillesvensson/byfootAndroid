@@ -25,6 +25,7 @@ import android.location.Geocoder;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.v4.app.ListFragment;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -221,8 +222,15 @@ public class PlacesFragment extends ListFragment{
     }
     
     private void setUp(){
+        ListView list = this.getListView();
+        //Save state of listview
+        Parcelable state = list.onSaveInstanceState();
         //create place adapater and set as this lists adapter
         placeAdapter = new SavedPlaceAdapter(getActivity(), R.layout.layout_list_item, listPlaces);    
         setListAdapter(placeAdapter);
+        if(state != null){
+            //Restore state
+            list.onRestoreInstanceState(state);
+        }
     }
 }

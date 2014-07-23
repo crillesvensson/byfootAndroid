@@ -1,19 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:background="@color/list_item_bg_color">
     
 	<TextView 
 	    android:id="@+id/review_name"
 	    android:layout_width="wrap_content"
 	    android:layout_height="wrap_content"
+	    android:textStyle="bold"
+	    android:layout_marginBottom="5dp"
+	    android:layout_marginTop="10dp"
+	    android:layout_marginLeft="10dp"
+	    android:layout_marginRight="10dp"
 	    />
+	
+	<TextView 
+	    android:id="@+id/review_date"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_alignParentRight="true"
+	    android:textSize="12sp"
+	    android:layout_marginTop="10dp"
+	    android:layout_marginLeft="10dp"
+	    android:layout_marginRight="10dp"
+	    />
+	
 	<TextView 
 	    android:id="@+id/review_comment"
 	    android:layout_width="wrap_content"
 	    android:layout_height="wrap_content"
 	    android:layout_below="@id/review_name"
+	    android:layout_marginLeft="10dp"
+	    android:layout_marginRight="10dp"
+	    android:layout_marginBottom="10dp"
 	    />
 	
+	<ImageView 
+	    android:id="@+id/list_divider_one"
+	    android:layout_height="1dp"
+	    android:layout_width="match_parent"
+	    android:layout_below="@id/review_comment"
+	    android:background="@color/list_divider_color"
+	    android:contentDescription="@string/list_divider_content_description"
+	    />
+	
+	<ImageView 
+	    android:id="@+id/list_divider_two"
+	    android:layout_height="1dp"
+	    android:layout_width="match_parent"
+	    android:layout_below="@id/list_divider_one"
+	    android:background="@color/white_color"
+	    android:contentDescription="@string/list_divider_content_description"
+	    />
     
 </RelativeLayout>

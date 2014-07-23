@@ -75,6 +75,7 @@ public class PlaceActivity extends Activity{
         }
         
         this.reviewList = (ListView)findViewById(R.id.reviews_list);
+        this.reviewList.setDividerHeight(0);
         
         LoadPlaceDetailed loadPlaceDetailed = new LoadPlaceDetailed();
         loadPlaceDetailed.execute();

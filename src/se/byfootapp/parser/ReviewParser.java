@@ -1,6 +1,7 @@
 package se.byfootapp.parser;
 
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Locale;
 import java.util.TimeZone;
 
@@ -26,7 +27,7 @@ public class ReviewParser implements ModelParser<Review>{
         if(json.has("time") && !json.isNull("time")){
             long time = json.getLong("time");
             Calendar reviewDate = Calendar.getInstance(TimeZone.getDefault(), Locale.getDefault());
-            reviewDate.setTimeInMillis(time);
+            reviewDate.setTime(new Date(time * 1000));
             date = reviewDate;
         }
         review.setName(name);

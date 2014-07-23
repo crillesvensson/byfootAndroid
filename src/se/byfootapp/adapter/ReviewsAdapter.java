@@ -4,6 +4,7 @@ import java.util.List;
 
 import se.byfootapp.R;
 import se.byfootapp.model.Review;
+import se.byfootapp.utils.CalendarUtils;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,6 +32,11 @@ public class ReviewsAdapter extends ArrayAdapter<Review>{
         if(review.getName() != null && review.getName().length() > 0){
             TextView name = (TextView)rowView.findViewById(R.id.review_name);
             name.setText(review.getName());
+        }
+        
+        if(review.getDate() != null){
+            TextView date = (TextView)rowView.findViewById(R.id.review_date);
+            date.setText(CalendarUtils.getCalendarAsString(review.getDate()));
         }
         
         if(review.getComment() != null && review.getName().length() > 0){
