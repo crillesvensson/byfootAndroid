@@ -11,6 +11,7 @@ import se.byfootapp.model.PlaceText;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
@@ -62,10 +63,21 @@ public class TextActivity extends Activity{
          case android.R.id.home:
              finish();
              break;
+         case R.id.add_comment:
+             Intent intent = new Intent(this, NewTextActivity.class);
+             intent.putExtra("place", this.place);
+             startActivity(intent);
+             break;
           default:
               break;
           }
         return true;
       }
+    
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.text_activity, menu);
+        return true;
+    }
     
 }

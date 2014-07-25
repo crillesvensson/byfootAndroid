@@ -43,6 +43,7 @@ public class PlaceActivity extends Activity{
     private String website;
     private ListView reviewList;
     private List<Review> reviews;
+    private String[] references;
     private final String DETAILED_URL = "https://maps.googleapis.com/maps/api/place/details/json?placeid=";
     
     @Override
@@ -158,6 +159,17 @@ public class PlaceActivity extends Activity{
                  Toast.makeText(this, "No Website found for this place", Toast.LENGTH_LONG).show();
              }
              break;
+         case R.id.images:
+             if(references.length > 0){
+                 Intent intent = new Intent(this, ImagesActivity.class);
+                 intent.putExtra("place", this.place);
+                 intent.putExtra("photoreferences", references);
+                 intent.putExtra("loadPhotos", true);
+                 startActivity(intent);
+             }else{
+                 Toast.makeText(this, "No images found for this place", Toast.LENGTH_SHORT).show();
+             }
+             break;
           default:
               break;
           }
@@ -181,6 +193,19 @@ public class PlaceActivity extends Activity{
                     JSONObject result  = response.getJSONObject("result");
                     if(result.has("website") && ! result.isNull("website")){
                         website = result.getString("website");
+                    }
+                    if(result.has("photos") && !result.isNull("photos")){
+                        System.out.println("has photots");
+                        JSONArray photos = result.getJSONArray("photos");
+                        references = new String[photos.length()]; 
+                        for(int i = 0; i < photos.length(); i++){
+                            JSONObject photo = photos.getJSONObject(i);
+                            if(photo.has("photo_reference") && !photo.isNull("photo_reference")){
+                                references[i] = photo.getString("photo_reference");
+                            }
+                        }
+                    }else{
+                        references = new String[0];
                     }
                     if(result.has("reviews") && !result.isNull("reviews")){
                         ModelParser<Review> reviewParser = ModelParserFactory.getParser(Review.class);

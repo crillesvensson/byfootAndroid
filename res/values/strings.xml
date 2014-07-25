@@ -59,20 +59,24 @@
 	
 	<!-- Place acitivty -->
 	<string name="place_button_text">Add Place</string>
-	<string name="images_button_text">Images</string>
+	<string name="images_button_text">My images</string>
 	<string name="delete_place_button_text">Delete place</string>
-	<string name="place_texts">Comments</string>
+	<string name="place_texts">My comments</string>
 	<string name="website">www</string>
 	<string name="comments">Comments:</string>
+	<string name="images">Images</string>
 	
 	<!-- Images activity -->
 	<string name="add_new_image_button_text">Add new image</string>
+	<string name="add_image">Add</string>
 	
 	<!-- Image activity -->
 	<string name="remove_image_button_text">Remove image</string>
+	<string name="remove_image">Remove</string>
 	
 	<!-- Text activity -->
 	<string name="add_text_button_text">Add comment</string>
+	<string name="add_comment">Add</string>
 	
 	<!-- New text activity -->
 	<string name="new_text_title_text">Add new comment</string>

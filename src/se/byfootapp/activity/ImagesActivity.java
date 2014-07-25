@@ -8,14 +8,18 @@ import java.util.TimeZone;
 
 import se.byfootapp.R;
 import se.byfootapp.adapter.ImageAdapter;
+import se.byfootapp.common.Common;
 import se.byfootapp.database.DatabaseHelper;
+import se.byfootapp.http.HTTPClient;
 import se.byfootapp.model.Place;
 import se.byfootapp.model.PlaceImage;
 import se.byfootapp.utils.ImageUtils;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -28,12 +32,20 @@ public class ImagesActivity extends Activity{
     private Place place;
     private List<PlaceImage> placeImages;
     private GridView gridView;
+    private boolean loadPhotos;
+    private String photo_url = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=";
+    private String[] photoReferences;
      
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_images);
         this.gridView = (GridView)findViewById(R.id.images);
+        loadPhotos = getIntent().getExtras().getBoolean("loadPhotos");
+        if(loadPhotos){
+            photoReferences = getIntent().getExtras().getStringArray("photoreferences");
+            placeImages = new ArrayList<PlaceImage>();
+        }
         gridView.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View v,
@@ -43,10 +55,14 @@ public class ImagesActivity extends Activity{
                 Intent intent = new Intent(getApplicationContext(), ImageActivity.class);
                 // passing array index
                 intent.putExtra("placeimage", placeImages.get(position));
+                intent.putExtra("loadedPlace", loadPhotos);
                 startActivity(intent);
             }
         });
         this.db = DatabaseHelper.getInstance(this.getApplicationContext());
+        if(loadPhotos){
+            setUp();
+        }
     }
 
     public void addImage(View view){
@@ -57,7 +73,9 @@ public class ImagesActivity extends Activity{
     @Override
     public void onResume(){
         super.onResume();
-        setUp();
+        if(!loadPhotos){
+            setUp();
+        }
     }
     
     @Override
@@ -89,14 +107,61 @@ public class ImagesActivity extends Activity{
         return true;
       }
     
-    private void setUp(){
-        this.place = (Place)getIntent().getExtras().getSerializable("place");
-        if(this.place != null){
-            this.placeImages = db.getPlaceImagesForPlace(this.place.getId());
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        if(!loadPhotos){
+            getMenuInflater().inflate(R.menu.images_activity, menu);
+            return true;
         }else{
-            this.placeImages = new ArrayList<PlaceImage>();
+            return false;
+        }
+    }
+    
+    private void setUp(){
+        if(loadPhotos){
+            for(String reference : photoReferences){
+                LoadPhoto loadPhoto = new LoadPhoto();
+                loadPhoto.execute(reference);
+            }
+        }else{
+            this.place = (Place)getIntent().getExtras().getSerializable("place");
+            if(this.place != null){
+                this.placeImages = db.getPlaceImagesForPlace(this.place.getId());
+            }else{
+                this.placeImages = new ArrayList<PlaceImage>();
+            }
+            gridView.setAdapter(new ImageAdapter(this, R.layout.layout_list_images_grid, placeImages));
         }
         
-        gridView.setAdapter(new ImageAdapter(this, R.layout.layout_list_images_grid, placeImages));
+    }
+    
+    private class LoadPhoto extends AsyncTask<String, Void, Void>{
+        Bitmap bitmap;
+        
+        @Override
+        protected Void doInBackground(String... reference) {
+            String url = photo_url + reference[0] + "&key=" + Common.GOOGLE_API_KEY;
+            System.out.println(url);
+            HTTPClient httpClient = new HTTPClient();
+            
+            try {
+                bitmap = httpClient.getReponseAsBitmap(url);
+            } catch (Exception e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+            return null;
+        }
+        
+        @Override
+        protected void onPostExecute(Void result){
+            if(bitmap != null){
+                PlaceImage placeImage = new PlaceImage();
+                placeImage.setImage(ImageUtils.convertBitmapToByteArray(bitmap));
+                placeImages.add(placeImage);
+                gridView.setAdapter(new ImageAdapter(getBaseContext(), R.layout.layout_list_images_grid, placeImages));
+            }
+        }
+       
     }
 }

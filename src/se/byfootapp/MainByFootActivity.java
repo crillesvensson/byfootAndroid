@@ -64,7 +64,7 @@ public class MainByFootActivity extends FragmentActivity implements
             tab.setTabListener(this);
             this.actionBar.addTab(tab);
         }
-        logIn();
+        //logIn();
     }
     
     @Override

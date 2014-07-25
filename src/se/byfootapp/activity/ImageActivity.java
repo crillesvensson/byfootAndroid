@@ -6,6 +6,7 @@ import se.byfootapp.model.PlaceImage;
 import se.byfootapp.utils.ImageUtils;
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -14,6 +15,7 @@ public class ImageActivity extends Activity{
     
     private PlaceImage placeImage;
     private DatabaseHelper db;
+    private boolean loadedPlace;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +30,8 @@ public class ImageActivity extends Activity{
         if(image != null && placeImage != null){
             image.setBackground(ImageUtils.byteToDrawable(placeImage.getImage()));
         }  
+        
+        loadedPlace = getIntent().getExtras().getBoolean("loadedPlace");
     }
     
     public void removeImage(View view){
@@ -47,5 +51,15 @@ public class ImageActivity extends Activity{
           }
         return true;
       }
+    
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        if(!loadedPlace){
+            getMenuInflater().inflate(R.menu.image_activity, menu);
+            return true;
+        }else{
+            return false;
+        }
+    }
 
 }

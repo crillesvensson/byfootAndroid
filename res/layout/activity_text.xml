@@ -2,27 +2,12 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white_color" >
-    
-    <Button 
-        android:id="@+id/add_text_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:onClick="addText"
-        android:text="@string/add_text_button_text"
-        android:layout_centerHorizontal="true"
-        android:textSize="12sp"
-        android:textColor="@color/white_color"
-        android:background="@drawable/shape_button"
-        />
+    android:background="@color/list_item_bg_color" >
     
     <ListView 
         android:id="@+id/text_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/add_text_button"
-        android:layout_marginTop="5dp"
         />
     
 
